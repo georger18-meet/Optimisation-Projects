@@ -1,0 +1,4 @@
+30,000 With Start: 0.2826157 Seconds
+30,000 Without Start: 0.2727015 Seconds
+30,000 With Update: 0.2731609 Seconds
+30,000 Without Update: 0.2716341 Seconds
