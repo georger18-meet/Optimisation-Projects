@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int Amount;
     public GameObject ObjectRef;
+    public Transform Parent;
     public float TimeTaken;
 
     private float startTime;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
         while (counter < Amount)
         {
-            Instantiate(ObjectRef);
+            Instantiate(ObjectRef,Parent);
             counter++;
         }
 

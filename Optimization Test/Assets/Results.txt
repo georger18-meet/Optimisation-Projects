@@ -1,4 +1,14 @@
+Empty Scene: FullScreen Average FPS = 750fps
+
+Start:
 30,000 With Start: 0.2826157 Seconds
 30,000 Without Start: 0.2727015 Seconds
-30,000 With Update: 0.2731609 Seconds
-30,000 Without Update: 0.2716341 Seconds
+
+Update:
+30,000 With Update: 0.2731609 Seconds / 220fps
+30,000 Without Update: 0.2716341 Seconds / 750fps
+
+Get Component (With Instantiation Time):
+1,000,000 Objects With Angle Brackets: 9.3167034 Seconds Average
+1,000,000 Objects With typeof: 9.3351982 Seconds Average
+1,000,000 Objects With string: 9.3242972 Seconds Average
