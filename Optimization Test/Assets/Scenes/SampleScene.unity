@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Amount: 30000
-  ObjectRef: {fileID: 7497276988358526967, guid: f1d92d4f10d60fd4788edc1333bbe666, type: 3}
+  ObjectRef: {fileID: 5750751211326633799, guid: f2db640274a5d754aacfff49a82de10a, type: 3}
   TimeTaken: 0
 --- !u!4 &556843452
 Transform:

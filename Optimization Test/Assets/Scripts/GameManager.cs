@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,16 +12,34 @@ public class GameManager : MonoBehaviour
     private float startTime;
     private float endTime;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CreateObjects();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
     [ContextMenu("Create Objects")]
     public void CreateObjects()
     {
+        int counter = 0;
         startTime = Time.realtimeSinceStartup;
-        for (int i = 0; i < Amount; i++)
+
+        while (counter < Amount)
         {
             Instantiate(ObjectRef);
+            counter++;
         }
+
         endTime = Time.realtimeSinceStartup;
 
         TimeTaken = endTime - startTime;
+
+        Debug.Log(ObjectRef.name + ": " + TimeTaken);
     }
 }
