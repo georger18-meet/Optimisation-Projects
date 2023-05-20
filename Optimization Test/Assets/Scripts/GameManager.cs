@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public GameObject ObjectRef;
     public Transform Parent;
     public float TimeTaken;
+    public bool UseArray;
+    public bool DoNullifyContainer;
+    public bool NullifyUsingRefEquals;
+    public GameObject[] Container;
 
     private float startTime;
     private float endTime;
@@ -17,7 +21,14 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CreateObjects();
+            if (!UseArray)
+            {
+                CreateObjects();
+            }
+            else
+            {
+                CreateObjectsToArray();
+            }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -42,5 +53,55 @@ public class GameManager : MonoBehaviour
         TimeTaken = endTime - startTime;
 
         Debug.Log(ObjectRef.name + ": " + TimeTaken);
+    }    
+    
+
+    [ContextMenu("Create Objects To Array")]
+    public void CreateObjectsToArray()
+    {
+        GameObject[] tempArr = new GameObject[Amount];
+        Container = tempArr;
+
+        int counter = 0;
+        startTime = Time.realtimeSinceStartup;
+
+        while (counter < Amount)
+        {
+            GameObject obj = Instantiate(ObjectRef,Parent);
+            Container[counter] = obj;
+            counter++;
+        }
+
+        if (DoNullifyContainer) NullifyContainer();
+
+        endTime = Time.realtimeSinceStartup;
+
+        TimeTaken = endTime - startTime;
+
+        Debug.Log(ObjectRef.name + ": " + TimeTaken);
     }
+
+    private void NullifyContainer()
+    {
+        if (!NullifyUsingRefEquals)
+        {
+            for (int i = 0; i < Container.Length; i++)
+            {
+                if (Container[i] != null)
+                {
+                    Container[i] = null;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Container.Length; i++)
+            {
+                if (!System.Object.ReferenceEquals(Container, null))
+                {
+                    Container[i] = null;
+                }
+            }
+        }
+    }    
 }

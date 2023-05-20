@@ -12,3 +12,7 @@ Get Component (With Instantiation Time):
 1,000,000 Objects With Angle Brackets: 9.3167034 Seconds Average
 1,000,000 Objects With typeof: 9.3351982 Seconds Average
 1,000,000 Objects With string: 9.3242972 Seconds Average
+
+Nullifying Array (With Instantiation Time):
+30,000 Empty Object Null with RefEquals: 0.1171792 Seconds Average
+30,000 Empty Object Null with != : 0.11805496 Seconds Average
