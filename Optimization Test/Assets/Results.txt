@@ -16,3 +16,30 @@ Get Component (With Instantiation Time):
 Nullifying Array (With Instantiation Time):
 30,000 Empty Object Null with RefEquals: 0.1171792 Seconds Average
 30,000 Empty Object Null with != : 0.11805496 Seconds Average
+
+Comparing Tags (With Instantiation Time):
+10,000,000 Empty Object with Equal Tag: 109.8064 Seconds
+10,000,000 Empty Object with Compare Tag: 94.37498 Seconds
+
+
+-------------------------------------------------------------------
+
+Test Computer Specs:
+Operating System
+	Windows 10 Home 64-bit
+
+CPU
+	AMD Ryzen 5 5600X 6-Core Processor
+
+RAM
+	32.0GB Dual-Channel Kingston DDR4-2400MHz (16-18-18-36)
+
+Motherboard
+	ASUSTeK COMPUTER INC. ROG STRIX B550-E GAMING (AM4)
+
+Graphics
+	4095MB NVIDIA GeForce RTX 3060 Ti (ASUStek Computer Inc)
+
+Storage
+	1863GB Samsung SSD 870 QVO 2TB (SATA (SSD))
+	465GB Samsung SSD 970 EVO 500GB (M.2 (SSD))

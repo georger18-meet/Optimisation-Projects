@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6c7925ee322e14e8e1da00589f7356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amount: 30000
-  ObjectRef: {fileID: 8540314717761894089, guid: da7f8fa411d9db94084222e053cba8a4, type: 3}
+  Amount: 0
+  ObjectRef: {fileID: 0}
   Parent: {fileID: 556843452}
   TimeTaken: 0
   UseArray: 0
