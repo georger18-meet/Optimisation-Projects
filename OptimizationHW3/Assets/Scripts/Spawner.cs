@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnObj()
     {
-        float randSpawnTime = Random.Range(0.1f, 2);
+        float randSpawnTime = Random.Range(0f, 2);
 
         yield return new WaitForSeconds(randSpawnTime);
 
