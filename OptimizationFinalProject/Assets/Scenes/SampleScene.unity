@@ -171,6 +171,10 @@ MonoBehaviour:
   ObjectRef: {fileID: 1279672803}
   Parent: {fileID: 1280741440}
   TimeTaken: 0
+  UseList: 1
+  UsePooling: 1
+  DestroyAfter: 1
+  AllCreatedObjects: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

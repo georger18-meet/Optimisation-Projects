@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
     public Transform Parent;
     public float TimeTaken;
     public bool UseList;
+    public bool UsePooling;
+    public bool DestroyAfter;
 
-    public List<GameObject> Children;
+    public List<GameObject> AllCreatedObjects;
 
 
     private void Update()
@@ -28,6 +30,15 @@ public class GameManager : MonoBehaviour
                 CreateObjectsToList();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (AllCreatedObjects.Count != 0)
+            {
+                ReactivatePooled();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -58,6 +69,8 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Create Objects To List")]
     public void CreateObjectsToList()
     {
+        AllCreatedObjects.Clear();
+
         Stopwatch sw = new Stopwatch();
         sw.Start();
 
@@ -66,13 +79,54 @@ public class GameManager : MonoBehaviour
         while (counter < Amount)
         {
             GameObject go = Instantiate(ObjectRef, Parent);
-            Children.Add(go);
+            AllCreatedObjects.Add(go);
             counter++;
         }
 
+        if (DestroyAfter)
+        {
+            if (UsePooling)
+            {
+                foreach (GameObject go in AllCreatedObjects)
+                {
+                    go.SetActive(false);
+                }
+            }
+            else
+            {
+                foreach(GameObject go in AllCreatedObjects)
+                {
+                    Destroy(go);
+                }
+            }
+        }
 
         sw.Stop();
         TimeTaken = sw.ElapsedMilliseconds;
         UnityEngine.Debug.Log(ObjectRef.name + ": " + TimeTaken + " ms");
+    }
+
+    [ContextMenu("Reactivate All Pooled")]
+    public void ReactivatePooled()
+    {
+        if (UsePooling)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            foreach (var item in AllCreatedObjects)
+            {
+                item.SetActive(true);
+            }
+
+            foreach (var item in AllCreatedObjects)
+            {
+                item.SetActive(false);
+            }
+
+            sw.Stop();
+            TimeTaken = sw.ElapsedMilliseconds;
+            UnityEngine.Debug.Log(ObjectRef.name + ": " + TimeTaken + " ms");
+        }
     }
 }
