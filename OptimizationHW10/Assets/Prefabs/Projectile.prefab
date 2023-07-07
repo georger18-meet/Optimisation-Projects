@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseDestroy: 0
-  DoTime: 1
+  DoTime: 2
