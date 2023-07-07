@@ -51,7 +51,7 @@ public class ComparingTags : MonoBehaviour
             {
                 if (AllCreatedObjects[i].CompareTag("Tester"))
                 {
-                    return;
+                    continue;
                 }
             }
         }
@@ -61,7 +61,7 @@ public class ComparingTags : MonoBehaviour
             {
                 if (AllCreatedObjects[i].tag == "Tester")
                 {
-                    return;
+                    continue;
                 }
             }
         }
